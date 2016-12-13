@@ -1,0 +1,18 @@
+<!Doctype html>
+<html>
+    <head>
+       <title>Remove</title>
+       {% load staticfiles %} <!-- ALWAYS REMEMBER THIS LINE OF CODE -->
+       <link rel="stylesheet" href="{% static "add_des/css/style.css" %}">
+       <script src="https://use.typekit.net/iii7xtz.js"></script>
+       <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    </head>
+    <body>
+      <div id="wrapper">
+        <h1>Are you sure you want to delete this course</h1>
+          <p><strong>Course Name:</strong><br> {{ course.name }} </p>
+          <p><strong>Description:</strong><br> {{ course.description }}  </p>
+          <h4><a href="/">No</a> | <a href="/destroy/{{course.id}}">Confirm</a> </h4>
+      </div>
+    </body>
+</html>

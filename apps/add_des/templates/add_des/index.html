@@ -1,0 +1,30 @@
+<!Doctype html>
+<html>
+    <head>
+       <title>Courses</title>
+       {% load staticfiles %} <!-- ALWAYS REMEMBER THIS LINE OF CODE -->
+       <link rel="stylesheet" href="{% static "add_des/css/style.css" %}">
+       <script src="https://use.typekit.net/iii7xtz.js"></script>
+       <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    </head>
+    <body>
+      <div id="wrapper">
+        <h1>Add a new course</h1>
+        <form action="process" method="post">
+        {% csrf_token %}
+    		<input type="text" name="name" placeholder="Enter Course Name">
+    		<textarea  rows="4" cols="50" name="description" placeholder="Enter Course Description"></textarea>
+    		<input type="submit" value="Add Course">
+        </form>
+
+        <h2>Course :</h2>
+        {% for i in name %}
+        <p><strong>Course name:</strong> <br>{{i.name }} </p>
+        <p><strong>Description:</strong> <br>{{i.description }}  </p>
+        <p>Date Added: {{i.created_at}} </p>
+        <h4>Action: <a href="/remove/{{i.id}}">Remove Course</a> </h4><br>
+        <hr>
+        {% endfor %}
+      </div>
+    </body>
+</html>
